@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./monaco-editor.component.css']
 })
 export class MonacoEditorComponent implements OnInit {
-
+  editorOptions = {theme: 'vs-dark', language: 'javascript'};
+  code = 'function x() {\nconsole.log("Hello world!");\n}';
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onInit(editor) {
+    const line = editor.getPosition();
+    console.log(line);
   }
 
 }

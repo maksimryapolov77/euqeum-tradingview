@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "lightweight-charts": "^1.1.0",
     "monaco-editor": "^0.18.1",
+    "ngx-monaco-editor": "^8.0.0",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

@@ -8,6 +8,18 @@ import { TvChartContainerComponent } from './app-view/tv-chart-container/tv-char
 import { AppViewComponent } from './app-view/app-view.component';
 import { LightChartContainerComponent } from './app-view/light-chart-container/light-chart-container.component';
 import { MonacoEditorComponent } from './monaco-editor/monaco-editor.component';
+import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
+import { FormsModule } from '@angular/forms';
+
+
+const monacoConfig: NgxMonacoEditorConfig = {
+  baseUrl: './assets',
+  defaultOptions: { scrollBeyondLastLine: false },
+  onMonacoLoad: () => {
+     console.log((window as any).monaco);
+  }
+};
+
 
 @NgModule({
   declarations: [
@@ -16,11 +28,13 @@ import { MonacoEditorComponent } from './monaco-editor/monaco-editor.component';
     TvChartContainerComponent,
     AppViewComponent,
     LightChartContainerComponent,
-    MonacoEditorComponent,
+    MonacoEditorComponent
   ],
   imports: [
-  BrowserModule,
-    AppRoutingModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MonacoEditorModule.forRoot(monacoConfig)
   ],
   providers: [
   ],
