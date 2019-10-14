@@ -7,6 +7,7 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { TvChartContainerComponent } from './app-view/tv-chart-container/tv-chart-container.component';
 import { AppViewComponent } from './app-view/app-view.component';
 import { LightChartContainerComponent } from './app-view/light-chart-container/light-chart-container.component';
+import { MonacoEditorComponent } from './monaco-editor/monaco-editor.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { LightChartContainerComponent } from './app-view/light-chart-container/l
     TvChartContainerComponent,
     AppViewComponent,
     LightChartContainerComponent,
+    MonacoEditorComponent,
   ],
   imports: [
   BrowserModule,

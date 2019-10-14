@@ -1,0 +1,14 @@
+<h2>Monaco Editor Sync Loading Sample</h2>
+<div id="container" style="height:100px;border:1px solid black"></div>
+
+
+<script>
+	var editor = monaco.editor.create(document.getElementById('container'), {
+		value: [
+			'function x() {',
+			'\tconsole.log("Hello world!");',
+			'}'
+		].join('\n'),
+		language: 'javascript'
+	});
+</script>

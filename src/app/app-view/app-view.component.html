@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
@@ -12,18 +12,20 @@
       </li>
     </ul>
   </div>
-</nav>
-<span [ngSwitch]="viewMode">
+</nav> -->
+<!-- <span [ngSwitch]="viewMode">
   <p *ngSwitchCase="techChart">
     <app-light-chart-container></app-light-chart-container>
   </p>
   <p *ngSwitchCase="lightChart">
     <app-tv-chart-container></app-tv-chart-container>
-  </p>
+</p>
 
-  <p *ngSwitchCase="tradingChart">
-      {{ viewMode }}
-  </p>
-  <p *ngSwitchDefault>
-  </p>
-</span>
+<p *ngSwitchCase="tradingChart">
+    {{ viewMode }}
+</p>
+<p *ngSwitchDefault>
+</p>
+</span> -->
+
+<app-tv-chart-container></app-tv-chart-container>
