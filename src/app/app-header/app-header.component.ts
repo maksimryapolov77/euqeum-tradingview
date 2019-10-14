@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent {
-  title = 'EQUEUM TradingView Integration Sample in Angular 8';
+  title = 'TradingView Integration with Angular 8';
 }

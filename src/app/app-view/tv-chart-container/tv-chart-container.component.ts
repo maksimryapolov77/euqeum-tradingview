@@ -4,7 +4,7 @@ import {
     IChartingLibraryWidget,
     ChartingLibraryWidgetOptions,
     LanguageCode,
-} from '../../assets/charting_library/charting_library.min';
+} from '../../../assets/charting_library/charting_library.min';
 
 @Component({
     selector: 'app-tv-chart-container',
@@ -12,6 +12,7 @@ import {
     styleUrls: ['./tv-chart-container.component.css']
 })
 export class TvChartContainerComponent implements OnInit, OnDestroy {
+    // tslint:disable: variable-name
     private _symbol: ChartingLibraryWidgetOptions['symbol'] = 'AAPL';
     private _interval: ChartingLibraryWidgetOptions['interval'] = 'D';
     // BEWARE: no trailing slash is expected in feed URL
@@ -25,6 +26,13 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     private _autosize: ChartingLibraryWidgetOptions['autosize'] = true;
     private _containerId: ChartingLibraryWidgetOptions['container_id'] = 'tv_chart_container';
     private _tvWidget: IChartingLibraryWidget | null = null;
+    // theme customizing
+    private _theme: ChartingLibraryWidgetOptions['theme'] = 'Dark';
+
+    @Input()
+    set theme(theme: ChartingLibraryWidgetOptions['theme']) {
+        this._theme = theme || this._theme;
+    }
 
     @Input()
     set symbol(symbol: ChartingLibraryWidgetOptions['symbol']) {
@@ -96,7 +104,7 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
             container_id: this._containerId,
             library_path: this._libraryPath,
             locale: getLanguageFromURL() || 'en',
-            disabled_features: ['use_localstorage_for_settings'],
+            disabled_features: ['use_localstorage_for_settings', 'left_toolbar'],
             enabled_features: ['study_templates'],
             charts_storage_url: this._chartsStorageUrl,
             charts_storage_api_version: this._chartsStorageApiVersion,
@@ -104,6 +112,7 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
             user_id: this._userId,
             fullscreen: this._fullscreen,
             autosize: this._autosize,
+            theme: this._theme,
         };
 
         const tvWidget = new widget(widgetOptions);
