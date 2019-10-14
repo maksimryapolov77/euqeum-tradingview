@@ -15,9 +15,7 @@ import { FormsModule } from '@angular/forms';
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: './assets',
   defaultOptions: { scrollBeyondLastLine: false },
-  onMonacoLoad: () => {
-     console.log((window as any).monaco);
-  }
+  // onMonacoLoad: () => { console.log((window as any).monaco); }
 };
 
 
