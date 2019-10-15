@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppViewComponent } from './app-view.component';
+import { AppGridComponent } from './app-grid.component';
 
-describe('AppViewComponent', () => {
-  let component: AppViewComponent;
-  let fixture: ComponentFixture<AppViewComponent>;
+describe('AppGridComponent', () => {
+  let component: AppGridComponent;
+  let fixture: ComponentFixture<AppGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppViewComponent ]
+      declarations: [ AppGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppViewComponent);
+    fixture = TestBed.createComponent(AppGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AppHeaderComponent } from './app-header/app-header.component';
-import { TvChartContainerComponent } from './app-view/tv-chart-container/tv-chart-container.component';
-import { AppViewComponent } from './app-view/app-view.component';
-import { LightChartContainerComponent } from './app-view/light-chart-container/light-chart-container.component';
-import { MonacoEditorComponent } from './monaco-editor/monaco-editor.component';
-import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AgGridModule } from 'ag-grid-angular';
+import { TvChartContainerComponent } from './tv-chart-container/tv-chart-container.component';
+import { MonacoEditorComponent } from './monaco-editor/monaco-editor.component';
+import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
+import { AppComponent } from './app.component';
+import { AppGridComponent } from './app-grid/app-grid.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: './assets',
@@ -22,17 +22,17 @@ const monacoConfig: NgxMonacoEditorConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent,
     TvChartContainerComponent,
-    AppViewComponent,
-    LightChartContainerComponent,
-    MonacoEditorComponent
+    MonacoEditorComponent,
+    AppGridComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MonacoEditorModule.forRoot(monacoConfig)
+    MonacoEditorModule.forRoot(monacoConfig),
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
   ],

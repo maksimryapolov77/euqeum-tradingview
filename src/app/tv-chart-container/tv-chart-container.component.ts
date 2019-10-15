@@ -4,12 +4,12 @@ import {
     IChartingLibraryWidget,
     ChartingLibraryWidgetOptions,
     LanguageCode,
-} from '../../../assets/charting_library/charting_library.min';
+} from '../../assets/charting_library/charting_library.min';
 
 @Component({
     selector: 'app-tv-chart-container',
     templateUrl: './tv-chart-container.component.html',
-    styleUrls: ['./tv-chart-container.component.css']
+    styleUrls: ['./tv-chart-container.component.scss']
 })
 export class TvChartContainerComponent implements OnInit, OnDestroy {
     // tslint:disable: variable-name
@@ -112,7 +112,7 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
             user_id: this._userId,
             fullscreen: this._fullscreen,
             autosize: this._autosize,
-            theme: this._theme,
+            theme: this._theme
         };
 
         const tvWidget = new widget(widgetOptions);
