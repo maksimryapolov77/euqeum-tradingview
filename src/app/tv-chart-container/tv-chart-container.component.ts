@@ -39,7 +39,11 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     set symbol(symbol: ChartingLibraryWidgetOptions['symbol']) {
         this._symbol = symbol || this._symbol;
         console.log('set symbol');
-        this.initChart();
+        if (this._tvWidget !== null) {
+            this._tvWidget.chart().setSymbol(symbol, () => {
+                console.log('symbol added');
+            });
+        }
     }
 
     @Input()
@@ -97,9 +101,6 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-    }
-
-    initChart() {
         function getLanguageFromURL(): LanguageCode | null {
             const regex = new RegExp('[\\?&]lang=([^&#]*)');
             const results = regex.exec(location.search);
