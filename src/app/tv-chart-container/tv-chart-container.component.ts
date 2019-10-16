@@ -15,7 +15,6 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     // tslint:disable: variable-name
     private _symbol: ChartingLibraryWidgetOptions['symbol'] = 'AAPL';
     private _interval: ChartingLibraryWidgetOptions['interval'] = 'D';
-    // BEWARE: no trailing slash is expected in feed URL
     private _datafeedUrl = 'https://demo_feed.tradingview.com';
     private _libraryPath: ChartingLibraryWidgetOptions['library_path'] = '/assets/charting_library/';
     private _chartsStorageUrl: ChartingLibraryWidgetOptions['charts_storage_url'] = 'https://saveload.tradingview.com';
@@ -26,7 +25,6 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     private _autosize: ChartingLibraryWidgetOptions['autosize'] = true;
     private _containerId: ChartingLibraryWidgetOptions['container_id'] = 'tv_chart_container';
     private _tvWidget: IChartingLibraryWidget | null = null;
-    // dark theme setting
     private _theme: ChartingLibraryWidgetOptions['theme'] = 'Dark';
     appRef: ApplicationRef;
 
@@ -38,7 +36,6 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     @Input()
     set symbol(symbol: ChartingLibraryWidgetOptions['symbol']) {
         this._symbol = symbol || this._symbol;
-        console.log('set symbol');
         if (this._tvWidget !== null) {
             this._tvWidget.chart().setSymbol(symbol, () => {
                 console.log('symbol added');

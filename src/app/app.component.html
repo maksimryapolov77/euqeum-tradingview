@@ -1,12 +1,14 @@
 <div class="container-fluid">
     <div class="row no-gutters">
-        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <app-tv-chart-container [symbol] = "symbol"></app-tv-chart-container>
         </div>
-        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+    </div>
+    <div class="row no-gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <app-grid (symbolChanged) = "onSymbolChanged($event)"></app-grid>
         </div>
-    </div>
+    </div> 
     <div class="row">
         <app-monaco-editor></app-monaco-editor>
     </div>
