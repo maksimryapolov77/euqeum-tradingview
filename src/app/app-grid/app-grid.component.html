@@ -1,6 +1,9 @@
 <ag-grid-angular 
     class="ag-theme-balham-dark" 
-    [rowData]="rowData | async"
-    [columnDefs]="columnDefs" 
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    (gridReady)="onGridReady($event)"
+    [rowSelection]="rowSelection"
+    (rowClicked)="onRowClicked($event)"
     >
 </ag-grid-angular>

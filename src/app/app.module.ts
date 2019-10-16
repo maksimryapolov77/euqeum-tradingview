@@ -11,6 +11,7 @@ import { MonacoEditorComponent } from './monaco-editor/monaco-editor.component';
 import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 import { AppComponent } from './app.component';
 import { AppGridComponent } from './app-grid/app-grid.component';
+import { AppGridService } from './service/app-grid.service';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: './assets',
@@ -32,9 +33,11 @@ const monacoConfig: NgxMonacoEditorConfig = {
     FormsModule,
     MonacoEditorModule.forRoot(monacoConfig),
     HttpClientModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    HttpClientModule
   ],
   providers: [
+    AppGridService
   ],
   bootstrap: [AppComponent]
 })

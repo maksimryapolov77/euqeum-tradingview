@@ -19,6 +19,5 @@ export class MonacoEditorComponent implements OnInit {
 
   onInit(editor) {
     const line = editor.getPosition();
-    console.log(line);
   }
 }

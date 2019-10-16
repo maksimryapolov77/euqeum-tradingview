@@ -26,7 +26,7 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     private _autosize: ChartingLibraryWidgetOptions['autosize'] = true;
     private _containerId: ChartingLibraryWidgetOptions['container_id'] = 'tv_chart_container';
     private _tvWidget: IChartingLibraryWidget | null = null;
-    // theme customizing
+    // dark theme setting
     private _theme: ChartingLibraryWidgetOptions['theme'] = 'Dark';
 
     @Input()
@@ -96,7 +96,6 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
 
             return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' ')) as LanguageCode;
         }
-
         const widgetOptions: ChartingLibraryWidgetOptions = {
             symbol: this._symbol,
             datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(this._datafeedUrl),
