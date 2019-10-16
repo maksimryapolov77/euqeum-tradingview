@@ -7,17 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonacoEditorComponent implements OnInit {
   editorOptions = {
-    theme: 'vs-dark',
-    language: 'javascript'
+    theme: 'vs-dark'
+    // language: 'java'
   };
-  code = 'function x() {\nconsole.log("Hello world!");\n}';
+  // code = 'function x() {\nconsole.log("Hello world!");\n}';
+  code = '';
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onInit(editor) {
+  onInit(editor: { getPosition: () => void; }) {
     const line = editor.getPosition();
   }
 }
