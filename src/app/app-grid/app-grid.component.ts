@@ -47,7 +47,7 @@ export class AppGridComponent implements OnInit {
     this.rowData = data.d;
   }
 
-  onGridReady(params) {
+  onGridReady(params: { api: { sizeColumnsToFit: { (): void; (): void; }; }; }) {
     params.api.sizeColumnsToFit();
     window.addEventListener('resize', () => {
       setTimeout(() => {
@@ -56,12 +56,9 @@ export class AppGridComponent implements OnInit {
     });
   }
 
-  onRowClicked(event) {
+  onRowClicked(event: { data: { v: { short_name: string; }; }; }) {
     const symbol: string = event.data.v.short_name;
-    console.log(symbol);
-
     this.symbolChanged.emit(symbol);
-    // this.tvChartContainer.symbol = symbol;
   }
 
 }

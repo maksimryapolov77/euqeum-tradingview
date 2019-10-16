@@ -12,15 +12,11 @@ export class AppGridService {
   preReqUrl = 'https://demo_feed.tradingview.com/history?symbol=ACN&resolution=D&from=1522108800&to=1522108800';
 
   parseSymbols(symbols: any) {
-    console.log(symbols);
     symbols.forEach((symbol: { symbol: string; }, index) => {
-      console.log(symbol, index);
       this.askAndBidReqParentUrl += 'NYSE%3A' + symbol.symbol + '%2C';
-      console.log(this.askAndBidReqParentUrl);
     });
 
     const secondReqUrl: string = this.askAndBidReqParentUrl.slice(0, -3);
-    console.log(secondReqUrl);
     return secondReqUrl;
   }
 

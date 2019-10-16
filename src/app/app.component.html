@@ -10,7 +10,7 @@
         </div>
     </div> 
     <div class="row">
-        <app-monaco-editor></app-monaco-editor>
+        <app-monaco-editor (symbolChanged) = "onSymbolChanged($event)"></app-monaco-editor>
     </div>
 </div>
 

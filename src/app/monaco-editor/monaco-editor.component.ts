@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-monaco-editor',
@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class MonacoEditorComponent implements OnInit {
   editorOptions = {
     theme: 'vs-dark'
-    // language: 'java'
+    // language: 'javascript'
   };
-  // code = 'function x() {\nconsole.log("Hello world!");\n}';
   code = '';
+
+  @Output() symbolChanged = new EventEmitter<string>();
 
   constructor() { }
 
@@ -20,5 +21,10 @@ export class MonacoEditorComponent implements OnInit {
 
   onInit(editor: { getPosition: () => void; }) {
     const line = editor.getPosition();
+  }
+
+  onKeyUp() {
+    const symbol: string = this.code.replace(/(\r\n|\n|\r)/gm, '');
+    this.symbolChanged.emit(symbol);
   }
 }

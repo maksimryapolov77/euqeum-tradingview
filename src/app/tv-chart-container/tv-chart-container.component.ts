@@ -37,8 +37,12 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     set symbol(symbol: ChartingLibraryWidgetOptions['symbol']) {
         this._symbol = symbol || this._symbol;
         if (this._tvWidget !== null) {
-            this._tvWidget.chart().setSymbol(symbol, () => {
-                console.log('symbol added');
+            this._tvWidget.onChartReady(() => {
+                console.log('WIDGET', this._tvWidget);
+                console.log('Symbol', symbol);
+                this._tvWidget.chart().setSymbol(symbol, () => {
+                    console.log('symbol added');
+                });
             });
         }
     }
@@ -104,7 +108,6 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
 
             return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' ')) as LanguageCode;
         }
-
         const widgetOptions: ChartingLibraryWidgetOptions = {
             symbol: this._symbol,
             datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(this._datafeedUrl),
