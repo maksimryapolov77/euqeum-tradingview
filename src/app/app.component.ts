@@ -6,5 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  symbol = 'DEI';
+
   constructor() { }
+
+  onSymbolChanged(symbol: string) {
+    this.symbol = symbol;
+  }
 }

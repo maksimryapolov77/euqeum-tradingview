@@ -1,10 +1,10 @@
 <div class="container-fluid">
     <div class="row no-gutters">
         <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
-            <app-tv-chart-container></app-tv-chart-container>
+            <app-tv-chart-container [symbol] = "symbol"></app-tv-chart-container>
         </div>
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-            <app-grid></app-grid>
+            <app-grid (symbolChanged) = "onSymbolChanged($event)"></app-grid>
         </div>
     </div>
     <div class="row">

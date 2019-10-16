@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, OnChanges, ApplicationRef } from '@angular/core';
 import {
     widget,
     IChartingLibraryWidget,
@@ -28,6 +28,7 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     private _tvWidget: IChartingLibraryWidget | null = null;
     // dark theme setting
     private _theme: ChartingLibraryWidgetOptions['theme'] = 'Dark';
+    appRef: ApplicationRef;
 
     @Input()
     set theme(theme: ChartingLibraryWidgetOptions['theme']) {
@@ -37,6 +38,8 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
     @Input()
     set symbol(symbol: ChartingLibraryWidgetOptions['symbol']) {
         this._symbol = symbol || this._symbol;
+        console.log('set symbol');
+        this.initChart();
     }
 
     @Input()
@@ -89,13 +92,21 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
         this._containerId = containerId || this._containerId;
     }
 
+    constructor(appRef: ApplicationRef) {
+        this.appRef = appRef;
+    }
+
     ngOnInit() {
+    }
+
+    initChart() {
         function getLanguageFromURL(): LanguageCode | null {
             const regex = new RegExp('[\\?&]lang=([^&#]*)');
             const results = regex.exec(location.search);
 
             return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' ')) as LanguageCode;
         }
+
         const widgetOptions: ChartingLibraryWidgetOptions = {
             symbol: this._symbol,
             datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(this._datafeedUrl),
@@ -123,18 +134,19 @@ export class TvChartContainerComponent implements OnInit, OnDestroy {
                 button.setAttribute('title', 'Click to show a notification popup');
                 button.classList.add('apply-common-tooltip');
                 button.addEventListener('click', () => tvWidget.showNoticeDialog({
-                        title: 'Notification',
-                        body: 'TradingView Charting Library API works correctly',
-                        callback: () => {
-                            console.log('Noticed!');
-                        },
-                    }));
+                    title: 'Notification',
+                    body: 'TradingView Charting Library API works correctly',
+                    callback: () => {
+                        console.log('Noticed!');
+                    },
+                }));
                 button.innerHTML = 'Check API';
             });
         });
     }
 
     ngOnDestroy() {
+        console.log('destroyed');
         if (this._tvWidget !== null) {
             this._tvWidget.remove();
             this._tvWidget = null;

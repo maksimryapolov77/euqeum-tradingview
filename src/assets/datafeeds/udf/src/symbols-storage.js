@@ -119,6 +119,7 @@ var SymbolsStorage = /** @class */ (function () {
         });
     };
     SymbolsStorage.prototype._onExchangeDataReceived = function (exchange, data) {
+		console.log('_onExchangeDataReceived');
         var symbolIndex = 0;
         try {
             var symbolsCount = data.symbol.length;

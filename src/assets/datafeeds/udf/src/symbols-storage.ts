@@ -114,6 +114,7 @@ export class SymbolsStorage {
 	}
 
 	public searchSymbols(searchString: string, exchange: string, symbolType: string, maxSearchResults: number): Promise<SearchSymbolResultItem[]> {
+		console.log('this is search symbol');
 		interface WeightedItem {
 			symbolInfo: LibrarySymbolInfo;
 			weight: number;
